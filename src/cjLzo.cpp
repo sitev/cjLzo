@@ -30,7 +30,8 @@ bool Lzo::decompress(Stream &in, Stream &out) {
 	in.read(m.data, sz);
 
 	Memory mout;
-	mout.setSize(sz + sz / 16 + 64 + 3);
+	int szout = sz + sz / 16 + 64 + 3;
+	mout.setSize(szout * 2);
 
 	lzo_uint new_len;// = in.getSize();
 
